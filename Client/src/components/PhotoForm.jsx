@@ -37,9 +37,9 @@ function PhotoForm() {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }, withCredentials: true,
-            })
+            }) //upload to cloud
             if (response.data.success) {
-                dispatch(uploadPhoto(response.data.photo));
+                dispatch(uploadPhoto(response.data.photo)); // add Image to store
                 return navigate("/");
             } else
                 console.log("Error");

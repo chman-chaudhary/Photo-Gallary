@@ -33,11 +33,7 @@ async function main() {
 
 app.listen(3000, () => {
   console.log("App listening on port 3000");
-});
+}); // add port
 
-app.get("/", (req, res) => {
-  res.send("<h1>Root</h1>");
-});
-
-app.use("/", authRoute);
-app.use("/photo", photoRoute);
+app.use("/", authRoute); // add authenticate route
+app.use("/photo", photoRoute); // add photo route

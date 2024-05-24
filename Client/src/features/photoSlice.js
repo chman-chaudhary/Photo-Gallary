@@ -11,7 +11,7 @@ export const photoSlice = createSlice({
     uploadPhoto: (state, action) => {
       const inStore = state.photos.filter(
         (photo) => photo._id === action.payload._id
-      );
+      ); // check if image is in store or not
       if (!inStore.length) {
         const photo = {
           _id: action.payload._id,
@@ -19,7 +19,7 @@ export const photoSlice = createSlice({
           description: action.payload.description,
           url: action.payload.url,
         };
-        state.photos.push(photo);
+        state.photos.push(photo); // add image to store
       } else {
         return state;
       }

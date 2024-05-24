@@ -17,8 +17,8 @@ function Home() {
 
     useEffect(() => {
         const fetchData = async () => {
-            let response = await axios.get("http://localhost:3000/photo");
-            uploadToStore(response.data);
+            let response = await axios.get("http://localhost:3000/photo"); // get add images from backend
+            uploadToStore(response.data); // Upload add images to store
         }
         fetchData();
     }, [])

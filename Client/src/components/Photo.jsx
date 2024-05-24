@@ -21,14 +21,14 @@ function Photo() {
     }
 
     useEffect(() => {
-        if (!cookies.token || cookies.token === "")
+        if (!cookies.token || cookies.token === "") // check for login
             return navigate("/login")
         const fetchData = async () => {
-            let viewsData = await axios.get(`http://localhost:3000/photo/${params.id}`);
+            let viewsData = await axios.get(`http://localhost:3000/photo/${params.id}`); // Increase views
             let { views } = viewsData.data;
             setViews(views);
             let response = await axios.get("http://localhost:3000/photo");
-            uploadToStore(response.data);
+            uploadToStore(response.data); // refresh store content
         }
         fetchData();
     }, [])

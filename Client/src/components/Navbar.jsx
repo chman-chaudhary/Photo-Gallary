@@ -7,9 +7,9 @@ import axios from "axios"
 export default function Navbar() {
     const navigate = useNavigate();
     const [cookies, removeCookie] = useCookies([]);
-    const [btnText, setBtnText] = useState("Get Started");
+    const [btnText, setBtnText] = useState("Login");
 
-    useEffect(() => {
+    useEffect(() => { // change button text 
         if (cookies.token && cookies.token !== "") {
             setBtnText("Logout");
         } else {
@@ -20,11 +20,11 @@ export default function Navbar() {
     const handleClick = async () => {
         if (cookies.token === "" || !cookies.token) {
             navigate("/login");
-            setBtnText("Get Started");
+            setBtnText("Login");
         } else {
             let response = await axios.get("http://localhost:3000/logout", { withCredentials: true });
             if (response.data.success) {
-                setBtnText("Get Started");
+                setBtnText("Login");
             }
             window.location.reload();
         }

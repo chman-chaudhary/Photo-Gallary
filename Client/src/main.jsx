@@ -12,7 +12,7 @@ import Signup from './components/Signup.jsx';
 import Photo from './components/Photo.jsx';
 import PhotoForm from './components/PhotoForm.jsx';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([ // create routes for app
   {
     path: "/",
     element: <Home />

@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
-
+    const navigate = useNavigate();
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -17,9 +18,9 @@ function Signup() {
         e.preventDefault();
         const formData = { ...data };
         try {
-            let response = await axios.post("http://localhost:3000/signup", formData);
+            let response = await axios.post("http://localhost:3000/signup", formData); //send data to signup
             if (response.data.success) {
-                console.log("sign up Successfully!");
+                return navigate("/"); // if successfully login the navigate to home page
             } else
                 console.log("Sign up unsuccessful!!")
         } catch (error) {
@@ -28,7 +29,7 @@ function Signup() {
         setData({
             email: "",
             password: "",
-        })
+        }) // clear the form
     }
 
     return (

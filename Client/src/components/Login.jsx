@@ -20,7 +20,7 @@ function Login() {
     e.preventDefault();
     const formData = { ...data };
     try {
-      let response = await axios.post("http://localhost:3000/login", formData, { withCredentials: true });
+      let response = await axios.post("http://localhost:3000/login", formData, { withCredentials: true }); // send login details
       if (response.data.success) {
         console.log("Login Successfully!");
         navigate("/");
